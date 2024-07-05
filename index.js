@@ -11,39 +11,39 @@ exports.getDatabase = async function () {
     return {
       id: page.id,
       name: page.properties.Name.title[0]?.plain_text,
-      role: page.properties.Role.rich_text[0]?.plain_text,
+      // role: page.properties.Role.rich_text[0]?.plain_text,
     };
   });
 
   return responseResults;
 };
 
-exports.newEntryToDatabase = async function (name, role) {
-  const response = await notion.pages.create({
-    parent: {
-      database_id: process.env.NOTION_API_DATABASE,
-    },
-    properties: {
-      Name: {
-        title: [
-          {
-            text: {
-              content: name,
-            },
-          },
-        ],
-      },
-      Role: {
-        rich_text: [
-          {
-            text: {
-              content: role,
-            },
-          },
-        ],
-      },
-    },
-  });
+// exports.newEntryToDatabase = async function (name, role) {
+//   const response = await notion.pages.create({
+//     parent: {
+//       database_id: process.env.NOTION_API_DATABASE,
+//     },
+//     properties: {
+//       Name: {
+//         title: [
+//           {
+//             text: {
+//               content: name,
+//             },
+//           },
+//         ],
+//       },
+//       Role: {
+//         rich_text: [
+//           {
+//             text: {
+//               content: role,
+//             },
+//           },
+//         ],
+//       },
+//     },
+//   });
 
   return response;
 };
