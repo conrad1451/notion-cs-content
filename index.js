@@ -12,6 +12,8 @@ exports.getDatabase = async function () {
       id: page.id,
       name: page.properties.Name.title[0]?.plain_text,
       tags: page.properties.Tags.multi_select.map((tag) => tag.name),
+      startDate: page.properties.Date.date.start,
+      endDate: page.properties.Date.date.end,
       // role: page.properties.Role.rich_text[0]?.plain_text,
     };
   });
