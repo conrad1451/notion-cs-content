@@ -12,7 +12,8 @@ exports.getDatabase = async function () {
       id: page.id,
       name: page.properties.Name.title[0]?.plain_text,
       tags: page.properties.Tags.multi_select.map((tag) => tag.name), 
-      link: page.properties["Link"].url,
+      // CHQ: unsure why the following lines did not work. Will debug later
+      // link: page.properties["Link"].url,
       // area: page.properties.Area.select.map((select) => select.name), 
       // area: page.properties.Area.area.map((select) => select.name), 
       // created: page.properties.Created.date, 
