@@ -23,6 +23,10 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Origin",
     "https://react-api-use-test-2.vercel.app"
   );
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    *
+  );
   // res.setHeader(
   //   "Access-Control-Allow-Methods",
   //   "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
