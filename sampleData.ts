@@ -1,3 +1,4 @@
+// this failed to deliver on account that the service didn't know what WordFrequencies was
 type WordFrequencies = {
   text: string;
   value: number;
