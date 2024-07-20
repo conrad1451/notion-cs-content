@@ -1,7 +1,10 @@
 // with extension of .js and export default myData, I got this error when deploying
 // (node:68) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
 
-let myData = [
+// with mjs, got SyntaxError: Illegal return statement
+
+
+const myData = [
   {
     text: "test1",
     value: 640,
@@ -46,4 +49,6 @@ let myData = [
 
 // export default myData;
 
-return myData;
+// return myData;
+
+module.exports = myData;
