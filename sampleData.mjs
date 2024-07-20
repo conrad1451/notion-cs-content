@@ -1,3 +1,6 @@
+// with extension of .js and export default myData, I got this error when deploying
+// (node:68) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+
 let myData = [
   {
     text: "test1",
@@ -41,4 +44,6 @@ let myData = [
   }
 ];
 
-export default myData;
+// export default myData;
+
+return myData;
