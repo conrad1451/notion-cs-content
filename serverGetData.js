@@ -2,7 +2,7 @@
 //       one must RESTART the task to see the changes
 
 // Optimization opportunity: refactor code base to query the database
-// only once and read through the local data each time a new user
+// only once and read through the local data each time a new page
 // is added
 const express = require("express");
 
@@ -52,14 +52,19 @@ app.use((req, res, next) => {
 });
 
 app.get("/", async (req, res) => {
-  res.redirect("/users");
+  res.redirect("/pages");
+  res.end();
+});
+
+app.get("/users", async (req, res) => {
+  res.redirect("/pages");
   res.end();
 });
 
 // CHQ: Reads all data entries from the database (Read)
-app.get("/users", async (req, res) => {
-  const users = await getDatabase();
-  res.json(users);
+app.get("/pages", async (req, res) => {
+  const pages = await getDatabase();
+  res.json(pages);
 });
 
 app.listen(port, console.log(`Server started on ${port}`));
