@@ -10,7 +10,7 @@ const express = require("express");
 const moduleToFetch = require("./index");
 const getDatabase = moduleToFetch.getDatabase;
 // const queryBySource = moduleToFetch.queryDBBySourcePagination;
-// const queryDBBySourcePagination = moduleToFetch.queryDBBySourcePagination;
+const queryDBBySourcePagination = moduleToFetch.queryDBBySourcePagination;
 // const newEntryToDatabase = moduleToFetch.newEntryToDatabase;
 const port = 8000;
 
@@ -69,14 +69,14 @@ app.get("/pages", async (req, res) => {
   res.json(pages);
 });
 
-// app.get("/queryBySource", async (req, res) => {
-//   const pages = await queryDBBySourcePagination();
+app.get("/queryBySource", async (req, res) => {
+  const pages = await queryDBBySourcePagination();
 
-//   // const pages = await queryDBBySourcePagination()
-//   //   .then(results => {
-//   //   console.log('Notion database query results:', results); 
-//   // });
-//   res.json(pages);
-// });
+  // const pages = await queryDBBySourcePagination()
+  //   .then(results => {
+  //   console.log('Notion database query results:', results); 
+  // });
+  res.json(pages);
+});
 
 app.listen(port, console.log(`Server started on ${port}`));
