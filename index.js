@@ -72,7 +72,7 @@ exports.queryDBBySourcePagination = async function () {
           contains: 'LinkedIn'
         }
       },
-      page_size: 100,
+      page_size: 2,
       start_cursor: nextCursor
     });
 
