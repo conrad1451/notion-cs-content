@@ -70,13 +70,13 @@ app.get("/pages", async (req, res) => {
 });
 
 app.get("/queryBySource", async (req, res) => {
-  const pages = await queryDBBySourcePagination();
+  // const pagesWithSource = await queryDBBySourcePagination();
 
-  // const pages = await queryDBBySourcePagination()
-  //   .then(results => {
-  //   console.log('Notion database query results:', results); 
-  // });
-  res.json(pages);
+  const pagesWithSource = await queryDBBySourcePagination()
+    .then(results => {
+    console.log('Notion database query results:', results); 
+  });
+  res.json(pagesWithSource);
 });
 
 app.listen(port, console.log(`Server started on ${port}`));
