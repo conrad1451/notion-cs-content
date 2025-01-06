@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Client } = require("@notionhq/client");
 
 const notion = new Client({ auth: process.env.CS_LEARN_SCHOOL_KEY });
-const databaseId = process.env.NOTION_API_DATABASE;
+const databaseId = process.env.NOTION_CS_LEARN_SCHOOL_DATABASE;
 
 exports.getDatabase = async function () {
   const response = await notion.databases.query({ database_id: databaseId });
@@ -57,29 +57,29 @@ exports.getDatabase = async function () {
 //   return response;
 // };
  
-exports.queryDBBySourcePagination = async function () {
-  // const { databaseId, pageSize = 100 } = payload; 
-  let hasMore = true;
-  let nextCursor = null;
-  let allResults = [];
+// exports.queryDBBySourcePagination = async function () {
+//   // const { databaseId, pageSize = 100 } = payload; 
+//   let hasMore = true;
+//   let nextCursor = null;
+//   let allResults = [];
 
-  while (hasMore) {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      filter: {
-        property: 'Source',
-        rich_text: {
-          contains: 'LinkedIn'
-        }
-      },
-      page_size: 2,
-      start_cursor: nextCursor
-    });
+//   while (hasMore) {
+//     const response = await notion.databases.query({
+//       database_id: databaseId,
+//       filter: {
+//         property: 'Source',
+//         rich_text: {
+//           contains: 'LinkedIn'
+//         }
+//       },
+//       page_size: 2,
+//       start_cursor: nextCursor
+//     });
 
-    allResults = allResults.concat(response.results); 
-    hasMore = response.has_more;
-    nextCursor = response.next_cursor;
-  }
+//     allResults = allResults.concat(response.results); 
+//     hasMore = response.has_more;
+//     nextCursor = response.next_cursor;
+//   }
 
-  return allResults;
-}
+//   return allResults;
+// }
