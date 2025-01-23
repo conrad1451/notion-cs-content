@@ -12,6 +12,12 @@ const getDatabase = moduleToFetch.getDatabase;
 // const queryBySource = moduleToFetch.queryDBBySourcePagination;
 const queryDBBySourcePagination = moduleToFetch.queryDBBySourcePagination;
 // const newEntryToDatabase = moduleToFetch.newEntryToDatabase;
+
+
+const resCalModule = require("./indexResCal");
+const getResCal = moduleToFetch.getResCal;
+
+
 const port = 8000;
 
 const app = express();
@@ -67,6 +73,11 @@ app.get("/users", async (req, res) => {
 app.get("/pages", async (req, res) => {
   const pages = await getDatabase();
   res.json(pages);
+});
+
+app.get("/querytest2", async(req, res) => {
+  const pages2 = await getResCal();
+  res.json(pages2);
 });
 
 app.get("/queryBySource", async (req, res) => {
