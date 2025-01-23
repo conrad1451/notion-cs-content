@@ -15,7 +15,7 @@ const queryDBBySourcePagination = moduleToFetch.queryDBBySourcePagination;
 
 
 const resCalModule = require("./indexResCal");
-const getResCal = moduleToFetch.getResCal;
+const getResCal = resCalModule.getResCal;
 
 
 const port = 8000;
