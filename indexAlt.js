@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Client } = require('@notionhq/client');
 
 const notion = new Client({ auth: process.env.RESCAL_PERSON_KEY });
