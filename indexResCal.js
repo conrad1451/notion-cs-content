@@ -15,6 +15,8 @@ exports.getResCal = async function () {
       // source: page.properties["Source"].select[0].name, 
       // source: page.properties["Source"]?.type,
       source: page.properties["Source"]?.select.name, 
+      area: page.properties["Area"]?.select.name, 
+      // type: page.properties["Type"]?.select.name, 
 
       tags: page.properties["Tags"].multi_select.map((tag) => tag.name), 
       // CHQ: unsure why the following lines did not work. Will debug later
