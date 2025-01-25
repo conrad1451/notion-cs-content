@@ -22,8 +22,8 @@ exports.getResCal = async function () {
 
       source: page.properties["Source"]?.select.name, 
       
-      type: page.properties["Link (If Applicable)"]?.url, 
-      type: page.properties["Connection"]?.url, 
+      sourceLink: page.properties["Link (If Applicable)"]?.url, 
+      sourceConnection: page.properties["Connection"]?.url, 
       
       area: page.properties["Area"]?.select.name, 
       type: page.properties["Type"]?.select.name, 
