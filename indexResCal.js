@@ -13,7 +13,9 @@ exports.getResCal = async function () {
       name: page.properties.Name.title[0]?.plain_text,
       // source: page.properties["Source"].select.name,
       // source: page.properties["Source"].select[0].name, 
-      source: page.properties["Source"]?.type, 
+      // source: page.properties["Source"]?.type,
+      source: page.properties["Source"]?.select.name, 
+
       tags: page.properties["Tags"].multi_select.map((tag) => tag.name), 
       // CHQ: unsure why the following lines did not work. Will debug later
       // link: page.properties["Link"].url,
