@@ -11,9 +11,6 @@ exports.getResCal = async function () {
     return {
       id: page.id,
       name: page.properties.Name.title[0]?.plain_text,
-      source: page.properties["Source"]?.select.name, 
-      area: page.properties["Area"]?.select.name, 
-      // type: page.properties["Type"]?.select.name, 
 
       createdStartTime: page.properties["Created"]?.date.start, 
       createdEndTime: page.properties["Created"]?.date.end, 
@@ -22,6 +19,10 @@ exports.getResCal = async function () {
       publishedEndTime: page.properties["Published"]?.date.end, 
       
       pageCreationTime: page.properties["Created time"]?.created_time, 
+
+      source: page.properties["Source"]?.select.name, 
+      area: page.properties["Area"]?.select.name, 
+      type: page.properties["Type"]?.select.name, 
 
       tags: page.properties["Tags"].multi_select.map((tag) => tag.name), 
       // CHQ: unsure why the following lines did not work. Will debug later
