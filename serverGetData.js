@@ -17,6 +17,9 @@ const queryDBBySourcePagination = moduleToFetch.queryDBBySourcePagination;
 const resCalModule = require("./indexResCal");
 const getResCal = resCalModule.getResCal;
 
+const foodTableModule = require("./indexNutrition");
+const getFoodBrands = resCalModule.getFoodBrands;
+
 
 const port = 8000;
 
@@ -79,6 +82,14 @@ app.get("/querytest2", async(req, res) => {
   const pages2 = await getResCal();
   res.json(pages2);
 });
+
+app.get("/foodtable", async(req, res) => {
+  const foodPages = await getFoodBrands();
+  res.json(foodPages);
+});
+
+
+
 
 app.get("/queryBySource", async (req, res) => {
   // const pagesWithSource = await queryDBBySourcePagination();
