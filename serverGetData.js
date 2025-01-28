@@ -2,7 +2,7 @@
 //       one must RESTART the task to see the changes
 
 // Optimization opportunity: refactor code base to query the database
-// only once and read through the local data each time a new page
+// only once and read through the local data each time a new page 
 // is added
 const express = require("express");
 
