@@ -20,7 +20,7 @@ exports.getFoodBrands = async function () {
       
       // pageCreationTime: page.properties["Created time"]?.created_time, 
 
-      source: page.properties["Source"]?.multi_select.map((foodgroup) => foodgroup.name), 
+      // source: page.properties["Source"]?.multi_select.map((foodgroup) => foodgroup.name), 
 
       
       // sourceLink: page.properties["Link (If Applicable)"]?.url, 
