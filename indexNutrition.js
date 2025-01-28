@@ -20,14 +20,15 @@ exports.getFoodBrands = async function () {
       
       // pageCreationTime: page.properties["Created time"]?.created_time, 
 
-      source: page.properties["Source"]?.select.name, 
+      source: page.properties["Source"]?.multi_select.map((foodgroup) => foodgroup.name), 
+
       
       // sourceLink: page.properties["Link (If Applicable)"]?.url, 
       // sourceConnection: page.properties["Connection"]?.url, 
       
       // area: page.properties["Area"]?.select.name,  
  
-      // tags: page.properties["Food groups"].multi_select.map((foodgroup) => foodgroup.name), 
+      // tags: page.properties["Food groups"]?.multi_select.map((foodgroup) => foodgroup.name), 
       // tags: page.properties["Tags"].multi_select.map((tag) => tag.name), 
       // CHQ: unsure why the following lines did not work. Will debug later
       // link: page.properties["Link"].url,
