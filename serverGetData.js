@@ -1,4 +1,4 @@
-// Note: because this is a SERVER, after making changes to this file,
+  // Note: because this is a SERVER, after making changes to this file,
 //       one must RESTART the task to see the changes
 
 // Optimization opportunity: refactor code base to query the database
@@ -18,7 +18,7 @@ const resCalModule = require("./indexResCal");
 const getResCal = resCalModule.getResCal;
 
 const foodTableModule = require("./indexNutrition");
-const getFoodBrands = resCalModule.getFoodBrands;
+const getFoodBrands = foodTableModule.getFoodBrands;
 
 
 const port = 8000;
