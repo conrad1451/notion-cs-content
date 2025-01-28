@@ -29,7 +29,7 @@ exports.getFoodBrands = async function () {
       // area: page.properties["Area"]?.select.name,  
  
       // tags: page.properties["Food groups"]?.multi_select.map((foodgroup) => foodgroup.name), 
-      // tags: page.properties["Tags"].multi_select.map((tag) => tag.name), 
+      tags: page.properties["Tags"].multi_select.map((tag) => tag.name), 
       // CHQ: unsure why the following lines did not work. Will debug later
       // link: page.properties["Link"].url,
       // created: page.properties.Created.date, 
