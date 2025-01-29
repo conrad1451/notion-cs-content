@@ -20,9 +20,26 @@ exports.getFoodBrands = async function () {
       
       // pageCreationTime: page.properties["Created time"]?.created_time, 
 
+      nutritionFat: page.properties["Fat (g)"].Number.number,
+      nutritionSatFat: page.properties["Sat Fat (g)"].Number.number,
+      nutritionFiberFat: page.properties["Fiber (g)"].Number.number,
+      nutritionSugar: page.properties["Sugar (g)"].Number.number,
+      nutritionSodium: page.properties["Sodium (mg)"].Number.number,
+      nutritionProtein: page.properties["Protein (g)"].Number.number,
+      nutritionIron: page.properties["Iron DV%"].Number.number,
+      nutritionCalcium: page.properties["Calcium DV%"].Number.number,
+      nutritionCarbs: page.properties["Total Carbs (g)"].Number.number,
+      nutritionUnitCount: page.properties["Unit Count"].Number.number, 
+      nutritionVitaminC: page.properties["Vitamin C DV%"].Number.number,
+      nutritionVitaminD: page.properties["Vitamin D DV%"].Number.number,
+      nutritionMagnesium: page.properties["Magnesium DV%"].Number.number,
+      nutritionZinc: page.properties["Zinc DV%"].Number.number,
+       
       source: page.properties["Source"].multi_select.map((foodgroup) => foodgroup.name), 
 
       // servingSize: page.properties.["Serving size"].title[0]?.plain_text,
+
+      // ingredients: page.properties.["Ingredients"].title[0]?.plain_text,
 
       // sourceLink: page.properties["Link (If Applicable)"]?.url, 
       // sourceConnection: page.properties["Connection"]?.url, 
