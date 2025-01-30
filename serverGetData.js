@@ -20,7 +20,7 @@ const getResCal = resCalModule.getResCal;
 const foodTableModule = require("./indexNutrition");
 const getFoodBrands = foodTableModule.getFoodBrands;
 
-const jsonTestModule = require("./indexNutrition");
+const jsonTestModule = require("./indexJSONExport");
 const testObjInJSON = jsonTestModule.testObjInJSON;
 
 
