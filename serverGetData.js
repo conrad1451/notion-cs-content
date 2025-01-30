@@ -107,17 +107,17 @@ app.get("/queryBySource", async (req, res) => {
 
 
 app.get("/jsontest", async (req, res) => {
-   function replacer(key, value) {
-    // Filtering out properties
-    if (typeof value === "string") {
-      return undefined;
-    }
-    return value;
-  }
+  //  function replacer(key, value) {
+  //   // Filtering out properties
+  //   if (typeof value === "string") {
+  //     return undefined;
+  //   }
+  //   return value;
+  // }
   const testingJSON = await testObjInJSON()
     .then(results => {
-    // console.log('JSON object filtering results:', results); 
-    console.log('JSON object filtering results:', JSON.stringify(testingJSON, replacer)); 
+    console.log('JSON object filtering results:', results); 
+    // console.log('JSON object filtering results:', JSON.stringify(testingJSON, replacer)); 
   });
   res.json(testingJSON);
   // JSON.stringify(testingJSON, replacer)
