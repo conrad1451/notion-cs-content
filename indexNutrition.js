@@ -49,8 +49,8 @@ exports.getFoodBrands = async function () {
 
       // sourceLink: page.properties["Link (If Applicable)"]?.url, 
       // sourceConnection: page.properties["Connection"]?.url, 
-      
-      // area: page.properties["Area"]?.select.name,  
+      companyName: page.properties["Company"]?.select.name,  
+      storage: page.properties["Storage"]?.select.name,  
  
       foodGroups: page.properties["Food groups"].multi_select.map((foodgroup) => foodgroup.name), 
       tags: page.properties["Tags"].multi_select.map((tag) => tag.name), 
