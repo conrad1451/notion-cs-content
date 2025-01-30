@@ -18,24 +18,30 @@ exports.getFoodBrands = async function () {
       // publishedStartTime: page.properties["Published"]?.date.start, 
       // publishedEndTime: page.properties["Published"]?.date.end, 
       
-      // pageCreationTime: page.properties["Created time"]?.created_time, 
+      // pageCreationTime: page.properties["Created time"]?.created_time,
+      source: page.properties["Source"].multi_select.map((foodgroup) => foodgroup.name), 
+
+      nutritionUnitCount: page.properties["Unit Count"]?.number, 
 
       nutritionFat: page.properties["Fat (g)"]?.number,
       nutritionSatFat: page.properties["Sat Fat (g)"]?.number,
+      
+      nutritionCarbs: page.properties["Total Carbs (g)"]?.number,
       nutritionFiberFat: page.properties["Fiber (g)"]?.number,
       nutritionSugar: page.properties["Sugar (g)"]?.number,
+      nutritionAddedSugar: page.properties["Added Sugar (g)"]?.number,
+
       nutritionSodium: page.properties["Sodium (mg)"]?.number,
       nutritionProtein: page.properties["Protein (g)"]?.number,
-      nutritionIron: page.properties["Iron DV%"]?.number,
-      nutritionCalcium: page.properties["Calcium DV%"]?.number,
-      nutritionCarbs: page.properties["Total Carbs (g)"]?.number,
-      nutritionUnitCount: page.properties["Unit Count"]?.number, 
-      nutritionVitaminC: page.properties["Vitamin C DV%"]?.number,
-      nutritionVitaminD: page.properties["Vitamin D DV%"]?.number,
-      nutritionMagnesium: page.properties["Magnesium DV%"]?.number,
-      nutritionZinc: page.properties["Zinc DV%"]?.number,
-       
-      source: page.properties["Source"].multi_select.map((foodgroup) => foodgroup.name), 
+      
+      nutritionIronDV: page.properties["Iron DV%"]?.number,
+      nutritionCalciumDV: page.properties["Calcium DV%"]?.number,
+      nutritionVitaminCDV: page.properties["Vitamin C DV%"]?.number,
+      nutritionVitaminDDV: page.properties["Vitamin D DV%"]?.number,
+      nutritionMagnesiumDV: page.properties["Magnesium DV%"]?.number,
+      nutritionZincDV: page.properties["Zinc DV%"]?.number,
+      nutritionPotassiumDV: page.properties["Potassium DV%"]?.number,
+
 
       // servingSize: page.properties.["Serving size"].title[0]?.plain_text,
 
