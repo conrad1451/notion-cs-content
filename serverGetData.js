@@ -104,13 +104,23 @@ app.get("/queryBySource", async (req, res) => {
   res.json(pagesWithSource);
 });
 
+function replacer(key, value) {
+  // Filtering out properties
+  if (typeof value === "string") {
+    return undefined;
+  }
+  return value;
+}
+
 app.get("/jsontest", async (req, res) => {
  
   const testingJSON = await testObjInJSON()
     .then(results => {
-    console.log('Notion database query results:', results); 
+    // console.log('JSON object filtering results:', results); 
+    console.log('JSON object filtering results:', JSON.stringify(testingJSON, replacer)); 
   });
   res.json(testingJSON);
+  // JSON.stringify(testingJSON, replacer)
 });
 
 app.listen(port, console.log(`Server started on ${port}`));
