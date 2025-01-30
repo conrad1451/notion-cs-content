@@ -20,6 +20,9 @@ const getResCal = resCalModule.getResCal;
 const foodTableModule = require("./indexNutrition");
 const getFoodBrands = foodTableModule.getFoodBrands;
 
+const jsonTestModule = require("./indexNutrition");
+const testObjInJSON = jsonTestModule.testObjInJSON;
+
 
 const port = 8000;
 
@@ -99,6 +102,15 @@ app.get("/queryBySource", async (req, res) => {
     console.log('Notion database query results:', results); 
   });
   res.json(pagesWithSource);
+});
+
+app.get("/jsontest", async (req, res) => {
+ 
+  const testingJSON = await testObjInJSON()
+    .then(results => {
+    console.log('Notion database query results:', results); 
+  });
+  res.json(testingJSON);
 });
 
 app.listen(port, console.log(`Server started on ${port}`));
