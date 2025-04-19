@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server"
+    "start": "node altIndex.js",
+    "dev": "nodemon altServer.js"
   },
   "keywords": [],
   "author": "",
