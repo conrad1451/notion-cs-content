@@ -1,8 +1,8 @@
-// Note: because this is a SERVER, after making changes to this file,
+  // Note: because this is a SERVER, after making changes to this file,
 //       one must RESTART the task to see the changes
 
 // Optimization opportunity: refactor code base to query the database
-// only once and read through the local data each time a new page
+// only once and read through the local data each time a new page 
 // is added
 const express = require("express");
 
@@ -12,7 +12,18 @@ const getDatabase = moduleToFetch.getDatabase;
 // const queryBySource = moduleToFetch.queryDBBySourcePagination;
 const queryDBBySourcePagination = moduleToFetch.queryDBBySourcePagination;
 // const newEntryToDatabase = moduleToFetch.newEntryToDatabase;
-// const port = 5080;
+
+
+const resCalModule = require("./indexResCal");
+const getResCal = resCalModule.getResCal;
+
+const foodTableModule = require("./indexNutrition");
+const getFoodBrands = foodTableModule.getFoodBrands;
+
+const jsonTestModule = require("./indexJSONExport");
+const testObjInJSON = jsonTestModule.testObjInJSON;
+
+
 const port = 8000;
 
 const app = express();
@@ -70,14 +81,46 @@ app.get("/pages", async (req, res) => {
   res.json(pages);
 });
 
-app.get("/queryBySource", async (req, res) => {
-  const pages = await queryDBBySourcePagination();
+app.get("/querytest2", async(req, res) => {
+  const pages2 = await getResCal();
+  res.json(pages2);
+});
 
-  // const pages = await queryDBBySourcePagination()
-  //   .then(results => {
-  //   console.log('Notion database query results:', results); 
-  // });
-  res.json(pages);
+app.get("/foodtable", async(req, res) => {
+  const foodPages = await getFoodBrands();
+  res.json(foodPages);
+});
+
+
+
+
+app.get("/queryBySource", async (req, res) => {
+  // const pagesWithSource = await queryDBBySourcePagination();
+
+  const pagesWithSource = await queryDBBySourcePagination()
+    .then(results => {
+    console.log('Notion database query results:', results); 
+  });
+  res.json(pagesWithSource);
+});
+
+
+
+app.get("/jsontest", async (req, res) => {
+  //  function replacer(key, value) {
+  //   // Filtering out properties
+  //   if (typeof value === "string") {
+  //     return undefined;
+  //   }
+  //   return value;
+  // }
+  const testingJSON = await testObjInJSON()
+    .then(results => {
+    console.log('JSON object filtering results:', results); 
+    // console.log('JSON object filtering results:', JSON.stringify(testingJSON, replacer)); 
+  });
+  res.json(testingJSON);
+  // JSON.stringify(testingJSON, replacer)
 });
 
 app.listen(port, console.log(`Server started on ${port}`));
