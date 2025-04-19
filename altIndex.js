@@ -126,7 +126,7 @@ exports.getDatabase = async function () {
           id: page.id,
           Name: page.properties.Name?.title?.[0]?.plain_text ?? null,
           Source: page.properties.Source?.select?.name ?? null,
-          Link: page.properties["Link (If Applicable)"].url ?? null,
+          Link: page.properties["Link (If Applicable)"]?.url ?? null,
           Area: page.properties.Area?.select?.name ?? null,
           Type: page.properties.Type?.select?.name ?? null,
           Tags: page.properties.Tags?.multi_select?.map((Tag) => Tag.name) ?? [], 
