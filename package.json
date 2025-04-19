@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node altIndex.js",
+    "start": "node altServer.js",
     "dev": "nodemon altServer.js"
   },
   "keywords": [],
