@@ -4,7 +4,7 @@ const moduleToFetch = require("./altIndex");
 const getDatabase = moduleToFetch.getDatabase;
 const getNotionPageContent = moduleToFetch.getNotionPageContent;
 
-const port = 8600;
+const port = 8400;
 const app = express();
 app.use(express.json());
 
