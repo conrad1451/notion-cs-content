@@ -11,9 +11,11 @@ app.use(express.json());
 // Global variable to store the fetched database
 let cachedDatabase = null;
 
+https://notion-cs-content.onrender.com/
+
 // Middleware to fetch and cache the database on any GET request
 app.use(async (req, res, next) => {
-    const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "https://personaldatafrontend.vercel.app", "https://careerinfo.vercel.app"];
+    const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "https://cslearnings.vercel.app"];
     const origin = req.headers.origin;
 
     if (origin && allowedOrigins.includes(origin)) {
