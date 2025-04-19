@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Client } = require("@notionhq/client");
 
 const notion = new Client({ auth: process.env.CS_LEARN_SCHOOL_KEY });
-const databaseId = process.env.NOTION_API_DATABASE;
+const databaseId = process.env.NOTION_CS_LEARN_SCHOOL_DATABASE;
 
 exports.getDatabase = async function () {
   const response = await notion.databases.query({ database_id: databaseId });
