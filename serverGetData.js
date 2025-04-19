@@ -12,7 +12,7 @@ const getDatabase = moduleToFetch.getDatabase;
 // const queryBySource = moduleToFetch.queryDBBySourcePagination;
 const queryDBBySourcePagination = moduleToFetch.queryDBBySourcePagination;
 // const newEntryToDatabase = moduleToFetch.newEntryToDatabase;
-const port = 8000;
+const port = 5080;
 
 const app = express();
 
