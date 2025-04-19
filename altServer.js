@@ -47,55 +47,35 @@ app.options("/submitformhere", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.redirect("/careeradjacent");
+    res.redirect("/pages");
     // res.end();
+
+    // if (!cachedDatabase) {
+    //     return res.status(500).json({ error: "Database not yet loaded." });
+    // }
+    // try {
+    //     const careerPages = cachedDatabase;
+    //     res.json(careerPages);
+    // } catch (error) {
+    //     console.error("Error filtering career adjacent pages:", error);
+    //     res.status(500).json({ error: "Internal server error" });
+    // }
 });
 
 function filtersApplied(thePages) {
     return thePages.filter((page) => page.Source === "Career" && page.Tags.length === 3);
-}
-
-app.get("/careeradjacent", (req, res) => {
-    if (!cachedDatabase) {
-        return res.status(500).json({ error: "Database not yet loaded." });
-    }
-    try {
-        const careerPages = cachedDatabase.filter((page) => page.Tags.includes("Career adjacent work"));
-        res.json(careerPages);
-    } catch (error) {
-        console.error("Error filtering career adjacent pages:", error);
-        res.status(500).json({ error: "Internal server error" });
-    }
-});
- 
-app.get("/potentialresources", (req, res) => {
-    if (!cachedDatabase) {
-        return res.status(500).json({ error: "Database not yet loaded." });
-    }
-    const bonnieOptions = [
-        "(LinkedIn) Bonnie Dilber",
-        "(LinkedIn) Bonnie Dilber comments"
-    ];
-    try {
-        const careerPages = cachedDatabase.filter((page) =>
-            bonnieOptions.some((interviewTag) => page.Tags.includes(interviewTag))
-        );
-        res.json(careerPages);
-    } catch (error) {
-        console.error("Error filtering bonnie pages:", error);
-        res.status(500).json({ error: "Internal server error" });
-    }
-});
+} 
 
 app.get("/cstools", (req, res) => {
     if (!cachedDatabase) {
         return res.status(500).json({ error: "Database not yet loaded." });
     }
     try {
-        const careerPages = cachedDatabase.filter((page) => page.Tags.includes("(LinkedIn) Mike Peditto"));
-        res.json(careerPages);
+        const cstools = cachedDatabase.filter((page) => page.Tags.some((str) => typeof str === 'string' && str.includes("CS Tools")));
+        // .includes("(LinkedIn) Mike Peditto"));
+        res.json(cstools);
     } catch (error) {
-        console.error("Error filtering mikepeditto pages:", error);
+        console.error("Error filtering cs tools pages:", error);
         res.status(500).json({ error: "Internal server error" });
     }
 });
@@ -103,22 +83,13 @@ app.get("/cstools", (req, res) => {
 app.get("/reactjs", (req, res) => {
     if (!cachedDatabase) {
         return res.status(500).json({ error: "Database not yet loaded." });
-    }
-    const interviewOptions = [
-        "job interviews",
-        "interview questions",
-        "Job Search Prep: Job interviews: tricks and traps",
-        "Job Search Prep: job interviews: tips",
-        "Job questions [FAQ]",
-        "asking good questions"
-    ];
+    } 
     try {
-        const careerPages = cachedDatabase.filter((page) =>
-            interviewOptions.some((interviewTag) => page.Tags.includes(interviewTag))
-        );
-        res.json(careerPages);
+        const reactjspages = cachedDatabase.filter((page) => page.Tags.some((str) => typeof str === 'string' && str.includes("ReactJS")));
+        // .includes("(LinkedIn) Mike Peditto"));
+        res.json(reactjspages);
     } catch (error) {
-        console.error("Error filtering interview pages:", error);
+        console.error("Error filtering ReactJS pages:", error);
         res.status(500).json({ error: "Internal server error" });
     }
 });
@@ -136,25 +107,16 @@ app.get("/onetag", (req, res) => {
     }
 });
 
-app.get("/interviewpagecontent", (req, res) => {
+app.get("/potentialresources", (req, res) => {
     if (!cachedDatabase) {
         return res.status(500).json({ error: "Database not yet loaded." });
-    }
-    const interviewOptions = [
-        "job interviews",
-        "interview questions",
-        "Job Search Prep: Job interviews: tricks and traps",
-        "Job Search Prep: job interviews: tips",
-        "Job questions [FAQ]",
-        "asking good questions",
-    ];
+    } 
     try {
-        const careerPages = cachedDatabase.filter((page) =>
-            interviewOptions.some((interviewTag) => page.Tags.includes(interviewTag))
-        );
-        res.json(careerPages);
+        const potentialResources = cachedDatabase.filter((page) => page.Tags.some((str) => typeof str === 'string' && str.includes("Potential Resource")));
+        // .includes("(LinkedIn) Mike Peditto"));
+        res.json(potentialResources);
     } catch (error) {
-        console.error("Error filtering interview page content:", error);
+        console.error("Error filtering Potential Resource pages:", error);
         res.status(500).json({ error: "Internal server error" });
     }
 });
