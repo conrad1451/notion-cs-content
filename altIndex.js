@@ -125,6 +125,12 @@ exports.getDatabase = async function () {
         return {
           id: page.id,
           Name: page.properties.Name?.title?.[0]?.plain_text ?? null,
+          CreatedTime: page.properties["Created time"]?.created_time ?? null,
+          EditedTime: page.properties["Last edited time"]?.last_edited_time ?? null,
+          CreatedStart: page.properties.Created?.date?.start ?? null,
+          CreatedEnd: page.properties.Created?.date?.end ?? null,
+          PublishedStart: page.properties.Published?.date?.start ?? null,
+          PublishedEnd: page.properties.Published?.date?.end ?? null,
           Source: page.properties.Source?.select?.name ?? null,
           Link: page.properties["Link (If Applicable)"]?.url ?? null,
           Area: page.properties.Area?.select?.name ?? null,
