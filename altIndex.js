@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Client } = require("@notionhq/client");
 
 const notion = new Client({ auth: process.env.RESCAL_PERSON_KEY });
-const databaseId = process.env.NOTION_RESCAL_CSLEARN_DATABASE;
+const databaseId = process.env.NOTION_RESCAL_CSLEARN_DATABASE; 
 
 // const notion2 = new Client({ auth: process.env.NOTION_GAME_PERSON_KEY });
 // const databaseId2 = process.env.NOTION_BSS_GAME_PERSONAL_DATABASE;
