@@ -210,4 +210,9 @@ app.post("/admin/reset-cache", (req, res) => {
   res.json({ message: "Database cache has been reset." });
 });
 
+// CHQ: Claude AI: health endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 app.listen(port, () => console.log(`Server started on ${port}`));
